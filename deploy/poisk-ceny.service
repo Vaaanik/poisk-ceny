@@ -1,0 +1,15 @@
+[Unit]
+Description=Poisk ceny Telegram bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=poisk
+WorkingDirectory=/home/poisk/poisk-ceny
+EnvironmentFile=-/home/poisk/poisk-ceny/.env
+ExecStart=/home/poisk/poisk-ceny/.venv/bin/python bot.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
